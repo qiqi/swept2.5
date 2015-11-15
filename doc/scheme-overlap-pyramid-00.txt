@@ -1,0 +1,60 @@
+COLLECTION OF FRONTIERS
+
+Numbers represent the largest time-step at each spatial point.
+Two consecutive time-steps should be stored in the frontier,
+other than in the overlapping region represented by (8),
+where only the 5th time-step is stored.  The numbers are cyclic,
+i.e., 0 represents 10 when it is adjacent to a 9.
+
+                    5
+                  5 6 5
+                5 6 7 6 5
+              5 6 7 8 7 6 5
+            5 6 7 8 9 8 7 6 5
+          * 6 7 8 9 0 9 8 7 6 *
+        5 6 * 6 7 8 9 8 7 6 * 6 5
+      5 6 7 6 * 6 7 8 7 6 * 6 7 6 5
+    5 6 7 8 7 6 * 6 7 6 * 6 7 8 7 6 5
+  5 6 7 8 9 8 7 6 * 6 * 6 7 8 9 8 7 6 5
+5 6 7 8 9 0 9 8 7 6 * 6 7 8 9 0 9 8 7 6 5
+  5 6 7 8 9 8 7 6 * 6 * 6 7 8 9 8 7 6 5
+    5 6 7 8 7 6 * 6 7 6 * 6 7 8 7 6 5
+      5 6 7 6 * 6 7 8 7 6 * 6 7 6 5
+        5 6 * 6 7 8 9 8 7 6 * 6 5
+          * 6 7 8 9 0 9 8 7 6 *           
+            5 6 7 8 9 8 7 6 5
+              5 6 7 8 7 6 5
+                5 6 7 6 5
+                  5 6 5
+                    5
+
+
+FRONTIERS NEEDED FOR A PYRAMID
+
+Each frontier is shaped like a dagger blade in 3D.  The "root" of
+the blade has the largest time-step, 10 (represented by 0) in this case.
+The "edges" of the dagger has the smallest time-step, 5 in this case.
+Other than the edgges which has only the 5th time-step, all spatial point has
+two consecutive time-steps, the one indicated and the one before it.
+
+            6 7 8 9 0 9 8 7 6
+            5 6 7 8 9 8 7 6 5
+              5 6 7 8 7 6 5
+                5 6 7 6 5
+                  5 6 5
+                    5
+6 5                                   5 6
+7 6 5                               5 6 7 
+8 7 6 5                           5 6 7 8
+9 8 7 6 5                       5 6 7 8 9
+0 9 8 7 6 5                   5 6 7 8 9 0
+9 8 7 6 5                       5 6 7 8 9
+8 7 6 5                           5 6 7 8
+7 6 5                               5 6 7
+6 5                                   5 6
+                    5
+                  5 6 5
+                5 6 7 6 5
+              5 6 7 8 7 6 5
+            5 6 7 8 9 8 7 6 5
+            6 7 8 9 0 9 8 7 6
