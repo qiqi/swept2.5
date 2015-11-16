@@ -33,17 +33,22 @@ uint64_t Swept25_DaggerFront2D_bytes(uint64_t length,
     return dataBytes + sizeof(Swept25_DaggerFront2D) - 8;
 }
 
-Swept25_DaggerFront2D * Swept25_DaggerFront2D_new(
-    uint64_t i_root, uint64_t j_root,
-    uint64_t i_tip, uint64_t j_tip,
-    uint64_t t_tip,
-    uint64_t bytes_per_point)
+uint64_t Swept25_DaggerFront2D_length(uint64_t i_root, uint64_t j_root,
+                                      uint64_t i_tip, uint64_t j_tip)
 {
     if ((i_root != i_tip) && (j_root != j_tip)) {
         return 0;
     }
-    uint64_t length = (i_root != i_tip) ? abs(i_root - i_tip)
-                                        : abs(j_root - j_tip);
+    return (i_root != i_tip) ? abs(i_root - i_tip) : abs(j_root - j_tip);
+}
+
+Swept25_DaggerFront2D * Swept25_DaggerFront2D_new(
+    uint64_t i_root, uint64_t j_root,
+    uint64_t i_tip, uint64_t j_tip,
+    uint64_t t_tip, uint64_t bytes_per_point)
+{
+    uint64_t length = Swept25_DaggerFront2D_length(
+             i_root, j_root, i_tip, j_tip);
     uint64_t bytes = Swept25_DaggerFront2D_bytes(length, bytes_per_point);
     Swept25_DaggerFront2D * ptr = (Swept25_DaggerFront2D *) malloc(bytes);
 
